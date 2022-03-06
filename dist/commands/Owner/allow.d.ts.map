@@ -1,0 +1,1 @@
+{"version":3,"file":"allow.d.ts","sourceRoot":"","sources":["../../../src/commands/Owner/allow.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,0BAA0B,EAAE,OAAO,EAAkB,MAAM,qBAAqB,CAAC;AAG1F,OAAO,KAAK,EAAE,kBAAkB,EAAE,MAAM,YAAY,CAAC;AAEnD,qBAOa,WAAY,SAAQ,OAAO;IACtB,2BAA2B,CACvC,QAAQ,EAAE,0BAA0B;IAc7B,YAAY,CAAC,WAAW,EAAE,kBAAkB;CAiBzD"}

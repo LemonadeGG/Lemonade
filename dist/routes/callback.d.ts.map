@@ -1,0 +1,1 @@
+{"version":3,"file":"callback.d.ts","sourceRoot":"","sources":["../../src/routes/callback.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,qBAAqB,CAAC;AACxD,OAAO,EAAgB,KAAK,EAA+C,MAAM,sBAAsB,CAAA;AAMvG,qBAAa,WAAY,SAAQ,KAAK;IACrC,OAAO,CAAC,QAAQ,CAAC,WAAW,CAAqB;gBAE9B,OAAO,EAAE,YAAY;YAsCzB,SAAS;CA2BxB"}

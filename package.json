@@ -1,0 +1,34 @@
+{
+  "name": "Lemonade",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@prisma/client": "^3.10.0",
+    "@sapphire/decorators": "^4.2.6",
+    "@sapphire/discord-utilities": "^2.9.0",
+    "@sapphire/fetch": "^2.2.0",
+    "@sapphire/framework": "^3.0.0-next.30e7ffd.0",
+    "@sapphire/plugin-api": "^3.1.4",
+    "@sapphire/plugin-i18next": "^2.2.3",
+    "@sapphire/plugin-logger": "^2.1.3",
+    "@sapphire/ts-config": "^3.3.1",
+    "colorette": "^2.0.16",
+    "discord-api-types": "^0.28.0-next.a3b1006.1646505147",
+    "discord-hybrid-sharding": "^1.4.5",
+    "discord.js": "^13.6.0",
+    "dotenv-cra": "^3.0.2",
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "prisma": "^3.10.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "generate": "prisma generate --schema=./prisma/schema.prisma",
+    "migrate": "prisma migrate dev --schema=./prisma/schema.prisma"
+  }
+}

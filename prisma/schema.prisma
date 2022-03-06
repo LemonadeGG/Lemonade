@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Guilds {
+  id Int @unique @default(autoincrement())
+
+  guildId String @unique @default("0")
+
+  language String @default("en-US")
+
+  phiserman String @default("null")
+}
+
+model Notes {
+  id Int @unique @default(autoincrement())
+
+  userId String[]
+}
+
+model Filters {
+  id Int @unique @default(autoincrement())
+
+  guildId String @unique @default("0")
+
+  MessageLinkFilter Boolean @default(false)
+
+  MessageLinkFilterAction String @default("none")
+
+  ScamLinkFilter Boolean @default(false)
+
+  ScamLinkFilterAction String @default("ban")
+}

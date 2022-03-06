@@ -1,0 +1,6 @@
+{
+  "success": {
+    "title": "{{author}} Hugged {{user}}",
+    "footer": "Powered By LiesAPI "
+  }
+}

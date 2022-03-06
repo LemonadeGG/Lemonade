@@ -1,0 +1,1 @@
+{"version":3,"file":"OwnerOnly.d.ts","sourceRoot":"","sources":["../../src/preconditions/OwnerOnly.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,qBAAqB,CAAC;AACnD,OAAO,KAAK,EAAE,kBAAkB,EAAE,MAAM,YAAY,CAAC;AAErD,qBAAa,gBAAiB,SAAQ,YAAY;IACnC,YAAY,CAAC,WAAW,EAAE,kBAAkB;CAS1D;AAED,OAAO,QAAQ,qBAAqB,CAAC;IACnC,UAAU,aAAa;QACrB,SAAS,EAAE,KAAK,CAAC;KAClB;CACF"}
