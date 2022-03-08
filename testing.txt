@@ -1,4 +1,8 @@
-[Zeppelin#3008]: Calculating ping... 4
-[Zeppelin#3008]: Calculating ping... 3
-[Zeppelin#3008]: Calculating ping... 2
-[Zeppelin#3008]: Calculating ping... 1
+[mars#0001]: <@!546475331067052032> try now
+[Olly Canary#9899]: Pong! 77ms
+[Olly Canary#9899]: Pong! 101ms
+[Olly Canary#9899]: Pinging!
+[Olly Canary#9899]: Pong! 83ms
+[Olly Canary#9899]: Game Ended
+[mars#0001]: how
+[Lizard.#0001]: that’s dumb

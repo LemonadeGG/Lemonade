@@ -11,7 +11,7 @@ require("@sapphire/ratelimits");
 const fs_1 = require("fs");
 let MemberAdd = class MemberAdd extends framework_1.Listener {
     async run(messages) {
-        (0, fs_1.writeFileSync)('testing.txt', messages.map(message => `[${message.author.tag}]: ${message.content}`).join('\n'));
+        const file = (0, fs_1.writeFileSync)('testing.txt', messages.map(message => `[${message.author.tag}]: ${message.content}`).join('\n'));
     }
 };
 tslib_1.__decorate([

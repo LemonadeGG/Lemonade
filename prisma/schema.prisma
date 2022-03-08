@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Guilds {
+model guilds {
   id Int @unique @default(autoincrement())
 
   guildId String @unique @default("0")
@@ -20,13 +20,13 @@ model Guilds {
   phiserman String @default("null")
 }
 
-model Notes {
+model notes {
   id Int @unique @default(autoincrement())
 
   userId String[]
 }
 
-model Filters {
+model filters {
   id Int @unique @default(autoincrement())
 
   guildId String @unique @default("0")

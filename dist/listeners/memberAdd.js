@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 const framework_1 = require("@sapphire/framework");
 const decorators_1 = require("@sapphire/decorators");
 const ratelimits_1 = require("@sapphire/ratelimits");
-const rateLimitManager = new ratelimits_1.RateLimitManager(3000, 2);
+const rateLimitManager = new ratelimits_1.RateLimitManager(6000, 1);
 const arr = [];
 let MemberAdd = class MemberAdd extends framework_1.Listener {
     async run(member) {
@@ -16,6 +16,8 @@ let MemberAdd = class MemberAdd extends framework_1.Listener {
                 console.log(m);
             });
         }
+        // Up the counter
+        rateLimit.consume();
     }
 };
 MemberAdd = tslib_1.__decorate([

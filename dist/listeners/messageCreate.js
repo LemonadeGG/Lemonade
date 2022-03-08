@@ -7,14 +7,20 @@ const discord_js_1 = require("discord.js");
 //import { captureException } from "@sentry/minimal";
 const decorators_1 = require("@sapphire/decorators");
 const discord_utilities_1 = require("@sapphire/discord-utilities");
+const utils_1 = require("../lib/utils");
 let MemberAdd = class MemberAdd extends framework_1.Listener {
     async run(msg) {
-        console.log(discord_utilities_1.TokenRegex.test(msg.content));
         if (discord_utilities_1.TokenRegex.test(msg.content)) {
             await msg.member?.ban({
                 days: 1,
                 reason: "[Sent a discord token in chat. Violated filters]"
             });
+        }
+        if (utils_1.PhoneNumberRegex.test(msg.content)) {
+            await msg.delete();
+        }
+        if (utils_1.LinkRegex.test(msg.content)) {
+            await msg.delete();
         }
     }
 };
