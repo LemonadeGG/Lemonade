@@ -1,1 +1,0 @@
-{"version":3,"file":"bulkDelete.d.ts","sourceRoot":"","sources":["../../src/listeners/bulkDelete.ts"],"names":[],"mappings":"AAAA,OAAO,EAAU,QAAQ,EAAmB,MAAM,qBAAqB,CAAC;AACxE,OAAO,EAAE,UAAU,EAAE,OAAO,EAAE,MAAM,YAAY,CAAC;AAOjD,qBACa,SAAU,SAAQ,QAAQ;IAExB,GAAG,CAAC,QAAQ,EAAE,UAAU,CAAC,MAAM,EAAE,OAAO,CAAC;CAMvD"}
