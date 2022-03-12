@@ -1,23 +1,18 @@
-import { Events, Listener, ListenerOptions } from "@sapphire/framework";
-import { Collection, Guild, Message } from "discord.js";
-//import { captureException } from "@sentry/minimal";
-import { ApplyOptions, RequiresGuildContext } from "@sapphire/decorators";
-import { Stopwatch } from "@sapphire/stopwatch";
-import { RateLimitManager} from "@sapphire/ratelimits"
+import { Events, Listener } from '@sapphire/framework';
+import type { Guild } from 'discord.js';
+import { ApplyOptions } from '@sapphire/decorators';
 
-@ApplyOptions<ListenerOptions>({ event: Events.GuildCreate })
-export class MemberAdd extends Listener {
-  @RequiresGuildContext()
+@ApplyOptions<Listener.Options>({ event: Events.GuildCreate })
+export class UserListener extends Listener {
   public async run(guild: Guild) {
     const guilds = this.container.db.guilds.findFirst({
-        where: {
-            guildId: guild.id
-        }
-    })
+      where: {
+        guildId: guild.id
+      }
+    });
 
-    if(!guilds) {
-        await guild.leave()
-    } else return;
+    if (!guilds) {
+      await guild.leave();
+    }
   }
-    
 }
