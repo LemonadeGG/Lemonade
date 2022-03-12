@@ -4,7 +4,7 @@ import { RequiresGuildContext } from '@sapphire/decorators';
 import { TokenRegex } from '@sapphire/discord-utilities';
 import { PhoneNumberRegex, LinkRegex } from '../lib/utils';
 
-export class MemberAdd extends Listener {
+export class UserListener extends Listener {
   @RequiresGuildContext()
   public async run(msg: Message) {
     if (TokenRegex.test(msg.content)) {

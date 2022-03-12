@@ -7,7 +7,7 @@ const rateLimitManager = new RateLimitManager(6000, 1);
 const arr: Array<string> = [];
 
 @ApplyOptions<Listener.Options>({ event: Events.GuildMemberAdd })
-export class MemberAdd extends Listener {
+export class UserListener extends Listener {
   public run(member: GuildMember) {
     arr.push(member.id);
     const rateLimit = rateLimitManager.acquire(member.guild.id);
