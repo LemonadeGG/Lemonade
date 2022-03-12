@@ -25,7 +25,6 @@
     "discord-api-types": "^0.28.0-next.a3b1006.1646505147",
     "discord.js": "^13.6.0",
     "dotenv-cra": "^3.0.2",
-    "reflect-metadata": "^0.1.13",
     "typescript": "^4.6.2"
   },
   "devDependencies": {
