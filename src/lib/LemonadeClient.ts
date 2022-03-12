@@ -1,25 +1,12 @@
 import { PrismaClient } from '@prisma/client';
-import { LogLevel, SapphireClient, container } from '@sapphire/framework';
+import { SapphireClient, container } from '@sapphire/framework';
 import type { InternationalizationContext } from '@sapphire/plugin-i18next';
 
 export class LemonClient extends SapphireClient {
   public constructor() {
     super({
       defaultPrefix: ',',
-      intents: [
-        'GUILDS',
-        'GUILD_MEMBERS',
-        'GUILD_BANS',
-        'GUILD_EMOJIS_AND_STICKERS',
-        'GUILD_VOICE_STATES',
-        'GUILD_MESSAGES',
-        'GUILD_MESSAGE_REACTIONS',
-        'DIRECT_MESSAGES',
-        'DIRECT_MESSAGE_REACTIONS'
-      ],
-      logger: {
-        level: LogLevel.Debug
-      },
+      intents: ['GUILDS', 'GUILD_MESSAGES', 'DIRECT_MESSAGES'],
       shards: container.client.shard?.ids,
       shardCount: container.client.shard?.count,
       api: {
