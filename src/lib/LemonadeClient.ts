@@ -1,10 +1,10 @@
 import { PrismaClient } from "@prisma/client";
-import { container, LogLevel, SapphireClient } from "@sapphire/framework";
+import { LogLevel, SapphireClient } from "@sapphire/framework";
 import type { InternationalizationContext } from "@sapphire/plugin-i18next";
 import "@sapphire/plugin-logger/register";
 import "@sapphire/plugin-i18next/register";
 import "@sapphire/plugin-api/register"
-import * as Cluster from "discord-hybrid-sharding";
+import { container } from "@sapphire/framework";
 export class LemonClient extends SapphireClient {
   /**
    *
@@ -48,8 +48,8 @@ export class LemonClient extends SapphireClient {
       logger: {
         level: LogLevel.Debug,
       },
-      shards: Cluster.data.SHARD_LIST,
-      shardCount: Cluster.data.TOTAL_SHARDS,
+      shards: container.client.shard?.ids,
+      shardCount: container.client.shard?.count,
       api: {
         auth: {
           id: process.env.CLIENT_ID ?? "0",

@@ -1,5 +1,4 @@
 import type { PrismaClient } from '@prisma/client'
-import type { Client } from 'discord-hybrid-sharding'
 
 declare module '@sapphire/pieces' {
   interface Container {
@@ -7,11 +6,6 @@ declare module '@sapphire/pieces' {
   }
 }
 
-declare module '@sapphire/pieces' {
-  interface Container {
-    shards: Client
-  }
-}
 
 /**
  * The OAuth2 body data sent to the callback.

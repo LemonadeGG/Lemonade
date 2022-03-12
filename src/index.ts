@@ -1,17 +1,14 @@
 import "./lib/setup/index"
-import { Manager } from "discord-hybrid-sharding"
+import { ShardingManager } from "discord.js"
 
 
-const manager = new Manager('dist/bot.js', {
+const manager = new ShardingManager('dist/bot.js', {
   token: process.env.token,
   totalShards: 1,
-  totalClusters: 1,
 });
 
-manager.on('clusterCreate', shard => {
+manager.on('shardCreate', shard => {
   console.log(`[PRE/SHARD] | Shard ID: ${shard.id} has been started.`)
 })
 
-manager.spawn({
-  timeout: -1,
-})
+manager.spawn()

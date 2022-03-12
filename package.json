@@ -1,6 +1,9 @@
 {
-  "name": "Lemonade",
+  "name": "lemonade",
   "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/LemonadeGG/Lemonade"
+  },
   "main": "dist/index.js",
   "license": "MIT",
   "dependencies": {
@@ -16,7 +19,6 @@
     "@sapphire/ts-config": "^3.3.1",
     "colorette": "^2.0.16",
     "discord-api-types": "^0.28.0-next.a3b1006.1646505147",
-    "discord-hybrid-sharding": "^1.4.6",
     "discord.js": "^13.6.0",
     "dotenv-cra": "^3.0.2",
     "reflect-metadata": "^0.1.13",
