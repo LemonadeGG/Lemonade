@@ -1,18 +1,11 @@
-import { Events, Listener, ListenerOptions } from "@sapphire/framework";
-import { Collection, Message } from "discord.js";
-//import { captureException } from "@sentry/minimal";
-import { ApplyOptions, RequiresGuildContext } from "@sapphire/decorators";
-import { Stopwatch } from "@sapphire/stopwatch";
-import { RateLimitManager} from "@sapphire/ratelimits"
-import { writeFileSync } from "fs";
+import type { Collection, Message } from 'discord.js';
+import { Events, Listener } from '@sapphire/framework';
+import { ApplyOptions } from '@sapphire/decorators';
+import { writeFile } from 'fs/promises';
 
-@ApplyOptions<ListenerOptions>({ event: Events.MessageBulkDelete })
+@ApplyOptions<Listener.Options>({ event: Events.MessageBulkDelete })
 export class MemberAdd extends Listener {
-  @RequiresGuildContext()
-  public async run(messages: Collection<string, Message>) {
-    const file = writeFileSync('testing.txt', messages.map(message => `[${message.author.tag}]: ${message.content}`).join('\n'))
-
-    
+  public run(messages: Collection<string, Message>) {
+    return writeFile('testing.txt', messages.map((message) => `[${message.author.tag}]: ${message.content}`).join('\n'));
   }
-    
 }
