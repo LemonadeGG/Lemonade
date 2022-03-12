@@ -1,10 +1,11 @@
-import { Command } from '@sapphire/framework';
+import { Command, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { ApplyOptions } from '@sapphire/decorators';
 import { MessageEmbed } from 'discord.js';
 
 @ApplyOptions<Command.Options>({
   name: 'filters',
   description: 'This will show the guilds filters for the available filters.',
+  runIn: [CommandOptionsRunTypeEnum.GuildAny],
   chatInputCommand: {
     register: true
   }
@@ -13,7 +14,7 @@ export class UserCommand extends Command {
   public override async chatInputRun(interaction: Command.ChatInputInteraction) {
     const filters = await this.container.db.filters.findFirst({
       where: {
-        guildId: interaction.guildId ?? '0'
+        guildId: interaction.guildId!
       },
       select: {
         MessageLinkFilter: true,
@@ -26,7 +27,7 @@ export class UserCommand extends Command {
     if (!filters) {
       await this.container.db.filters.create({
         data: {
-          guildId: interaction.guildId ?? '0',
+          guildId: interaction.guildId!,
           MessageLinkFilter: false,
           MessageLinkFilterAction: 'none',
           ScamLinkFilter: false,

@@ -10,14 +10,17 @@ export class LemonClient extends SapphireClient {
       shards: container.client.shard?.ids,
       shardCount: container.client.shard?.count,
       api: {
-        auth: {
-          id: process.env.CLIENT_ID ?? '0',
-          secret: process.env.CLIENT_SECRET ?? '0',
-          cookie: 'LEMONY_AUTH',
-          redirect: '/dash',
-          scopes: ['identify', 'guilds'],
-          transformers: []
-        },
+        auth:
+          process.env.CLIENT_ID && process.env.CLIENT_SECRET
+            ? {
+                id: process.env.CLIENT_ID,
+                secret: process.env.CLIENT_SECRET,
+                cookie: 'LEMONY_AUTH',
+                redirect: '/dash',
+                scopes: ['identify', 'guilds'],
+                transformers: []
+              }
+            : undefined,
         origin: '*',
         listenOptions: {
           port: 8080

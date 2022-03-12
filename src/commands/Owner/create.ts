@@ -1,10 +1,11 @@
-import { Command } from '@sapphire/framework';
+import { Command, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { ApplyOptions } from '@sapphire/decorators';
 import { MessageEmbed } from 'discord.js';
 
 @ApplyOptions<Command.Options>({
   name: 'create',
   description: "This will create data in the database incase it isn't already created.",
+  runIn: [CommandOptionsRunTypeEnum.GuildAny],
   chatInputCommand: {
     register: true
   }
@@ -13,13 +14,13 @@ export class UserCommand extends Command {
   public override async chatInputRun(interaction: Command.ChatInputInteraction) {
     await this.container.db.guilds.create({
       data: {
-        guildId: interaction.guildId ?? '0'
+        guildId: interaction.guildId!
       }
     });
 
     await this.container.db.filters.create({
       data: {
-        guildId: interaction.guildId ?? '0',
+        guildId: interaction.guildId!,
         MessageLinkFilter: true,
         MessageLinkFilterAction: 'none',
         ScamLinkFilter: true,
