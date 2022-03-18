@@ -5,7 +5,7 @@ import '@sapphire/plugin-logger/register';
 import '@sapphire/plugin-i18next/register';
 import '@sapphire/plugin-api/register';
 
-import colorette from 'colorette';
+import * as colorette from "colorette";
 
 //
 config();

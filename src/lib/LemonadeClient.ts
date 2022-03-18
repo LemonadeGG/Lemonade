@@ -5,26 +5,18 @@ import type { InternationalizationContext } from '@sapphire/plugin-i18next';
 export class LemonClient extends SapphireClient {
   public constructor() {
     super({
-      defaultPrefix: ',',
       intents: ['GUILDS', 'GUILD_MESSAGES', 'DIRECT_MESSAGES'],
-      shards: container.client.shard?.ids,
-      shardCount: container.client.shard?.count,
       api: {
-        auth:
-          process.env.CLIENT_ID && process.env.CLIENT_SECRET
-            ? {
-                id: process.env.CLIENT_ID,
-                secret: process.env.CLIENT_SECRET,
+        auth: {
+                id: process.env.CLIENT_ID!,
+                secret: process.env.CLIENT_SECRET!,
                 cookie: 'LEMONY_AUTH',
                 redirect: '/dash',
                 scopes: ['identify', 'guilds'],
-                transformers: []
+              },
+              listenOptions: {
+                port: 8080
               }
-            : undefined,
-        origin: '*',
-        listenOptions: {
-          port: 8080
-        }
       }
     });
   }

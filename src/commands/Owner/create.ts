@@ -1,6 +1,6 @@
 import { Command, CommandOptionsRunTypeEnum } from '@sapphire/framework';
 import { ApplyOptions } from '@sapphire/decorators';
-import { MessageEmbed } from 'discord.js';
+import { MessageEmbed, CommandInteraction } from 'discord.js';
 
 @ApplyOptions<Command.Options>({
   name: 'create',
@@ -11,7 +11,7 @@ import { MessageEmbed } from 'discord.js';
   }
 })
 export class UserCommand extends Command {
-  public override async chatInputRun(interaction: Command.ChatInputInteraction) {
+  public override async chatInputRun(interaction: CommandInteraction) {
     await this.container.db.guilds.create({
       data: {
         guildId: interaction.guildId!

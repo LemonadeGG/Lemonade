@@ -11,7 +11,7 @@ datasource db {
 }
 
 model guilds {
-  id Int @unique @default(autoincrement())
+  id Int @unique @default(autoincrement()) @id
 
   guildId String @unique @default("0")
 
@@ -21,13 +21,13 @@ model guilds {
 }
 
 model notes {
-  id Int @unique @default(autoincrement())
+  id Int @unique @default(autoincrement()) @id
 
   userId String[]
 }
 
 model filters {
-  id Int @unique @default(autoincrement())
+  id Int @unique @default(autoincrement()) @id
 
   guildId String @unique @default("0")
 
@@ -38,4 +38,22 @@ model filters {
   ScamLinkFilter Boolean @default(false)
 
   ScamLinkFilterAction String @default("ban")
+}
+
+model clearance {
+  id Int @unique @default(autoincrement()) @id
+
+  guildId String @unique @default("0")
+
+  Clearance1 String[] @unique
+
+  Clearance2 String[] @unique
+
+  Clearance3 String[] @unique
+
+  Clearance4 String[] @unique
+
+  Clearance5 String[] @unique
+
+  Clearance6 String[] @unique
 }
