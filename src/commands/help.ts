@@ -11,6 +11,7 @@ import { MessageEmbed, MessageActionRow, MessageSelectMenu, CommandInteraction }
 })
 export class UserCommand extends Command {
   public override chatInputRun(interaction: CommandInteraction) {
+    
     const select = new MessageActionRow().addComponents(
       new MessageSelectMenu()
         .setCustomId('HELP')
@@ -30,6 +31,7 @@ export class UserCommand extends Command {
     );
 
     const embed = new MessageEmbed().setTitle('Assistance').setDescription('Here, all assistance you need will be provided.');
+
 
     interaction.reply({
       embeds: [embed],

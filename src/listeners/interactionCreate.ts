@@ -14,7 +14,7 @@ export class UserListener extends Listener {
                 const embed = new MessageEmbed()
                 .setTitle("Moderation")
                 .addField("Clearance Level:", "`Clearance 2+ (unless specified elsewhere)`", true)
-                .addField("Modules:", "Ban, Kick, Warn, Mute, Hackban", true)
+                .addField("Modules:", `${this.container.stores.get('commands').filter(cmd => cmd.category === "Admin").map(cmd => `${cmd.name} - ${cmd.description}`).join('\n')}`, true)
                 .addField("Description: ", "This module is the easiest way  to moderate someone, with full on customization. This includes days, reasons, etc...")
                 interaction.reply({
                     embeds: [embed]

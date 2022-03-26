@@ -6,6 +6,8 @@ import { isThenable } from "@sapphire/utilities"
 import { Type } from "@sapphire/type"
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { emojis } from '../../lib/utils';
+import { Stopwatch } from '@sapphire/stopwatch';
+import { Constants } from 'discord.js';
 
 @ApplyOptions<Command.Options>({
   name: 'evaluate',
@@ -13,7 +15,8 @@ import { emojis } from '../../lib/utils';
   runIn: [CommandOptionsRunTypeEnum.GuildAny],
   chatInputCommand: {
     register: true
-  }
+  },
+  preconditions: ['OwnerOnly']
 })
 export class UserCommand extends Command {
     public override registerApplicationCommands(
@@ -36,20 +39,22 @@ export class UserCommand extends Command {
       public override async chatInputRun(interaction: CommandInteraction) {
           const code = interaction.options.getString("code")
           const async = interaction.options.getBoolean("async")
+          const stopwatch = new Stopwatch();
     const { result, success, type } = await this.eval(code!, {
         async: async!
     })
+    stopwatch.stop()
 
     const embed = new MessageEmbed()
     .setTitle("Evaluation:")
-    .addField(`${success ? emojis.CheckEmoji : emojis.CancelEmoji} Result:`, `\`\`\` ${result ?? "No Result Was Provided"}\`\`\``)
-    .addField("Information:", `Type: ${type ?? "There was no result"} \n Success: ${success ? emojis.CheckEmoji : emojis.CancelEmoji} \n Async: ${async ? emojis.CheckEmoji : emojis.CancelEmoji}`)
-    .setColor(success ? "GREEN" : "RED")
-
+    .addField(`${success ? emojis.CheckEmoji : emojis.CancelEmoji} Result:`, `\`\`\`${result ?? "No Result Was Provided"}\`\`\``)
+    .addField("Information:", `Type: ${type ?? "There was no result"} \n Success: ${success ? emojis.CheckEmoji : emojis.CancelEmoji} \n Async: ${async ? emojis.CheckEmoji : emojis.CancelEmoji} \n Duration: ${stopwatch.duration}s`)
+    .setColor(success ? Constants.Colors.DARK_BUT_NOT_BLACK : Constants.Colors.BLURPLE)
     
     return interaction.reply({
         embeds: [embed]
     })
+
 
     
   }

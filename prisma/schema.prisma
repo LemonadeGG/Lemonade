@@ -38,6 +38,10 @@ model filters {
   ScamLinkFilter Boolean @default(false)
 
   ScamLinkFilterAction String @default("ban")
+
+  UserSuspicionFlags String[] 
+
+  UserSuspicionAction String @default("ban")
 }
 
 model clearance {
@@ -56,4 +60,32 @@ model clearance {
   Clearance5 String[] @unique
 
   Clearance6 String[] @unique
+}
+
+model misc {
+  id Int @unique @default(autoincrement()) @id
+
+  guildId String @unique @default("0")
+
+  DmMembersOnModActions Boolean
+
+}
+
+model cases {
+  guildId String @default("0") @id
+
+  caseId Int @default(autoincrement())
+
+  victimId String @default("0")
+
+  victimTag String @default("null#0000")
+
+  modId String @default("0")
+
+  modTag String @default("0")
+
+  caseType String @default("null")
+
+  caseReason String @default("null")
+
 }
