@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,81 +8,53 @@ datasource db {
 }
 
 model guilds {
-  id Int @unique @default(autoincrement()) @id
-
-  guildId String @unique @default("0")
-
-  language String @default("en-US")
-
+  id        Int    @id @unique @default(autoincrement())
+  guildId   String @unique @default("0")
+  language  String @default("en-US")
   phiserman String @default("null")
 }
 
 model notes {
-  id Int @unique @default(autoincrement()) @id
-
+  id     Int      @id @unique @default(autoincrement())
   userId String[]
 }
 
 model filters {
-  id Int @unique @default(autoincrement()) @id
-
-  guildId String @unique @default("0")
-
-  MessageLinkFilter Boolean @default(false)
-
-  MessageLinkFilterAction String @default("none")
-
-  ScamLinkFilter Boolean @default(false)
-
-  ScamLinkFilterAction String @default("ban")
-
-  UserSuspicionFlags String[] 
-
-  UserSuspicionAction String @default("ban")
+  id                      Int      @id @unique @default(autoincrement())
+  guildId                 String   @unique @default("0")
+  MessageLinkFilter       Boolean  @default(false)
+  MessageLinkFilterAction String   @default("none")
+  ScamLinkFilter          Boolean  @default(false)
+  ScamLinkFilterAction    String   @default("ban")
+  UserSuspicionFlags      String[]
+  UserSuspicionAction     String   @default("ban")
 }
 
 model clearance {
-  id Int @unique @default(autoincrement()) @id
-
-  guildId String @unique @default("0")
-
+  id         Int      @id @unique @default(autoincrement())
+  guildId    String   @unique @default("0")
   Clearance1 String[] @unique
-
   Clearance2 String[] @unique
-
   Clearance3 String[] @unique
-
   Clearance4 String[] @unique
-
   Clearance5 String[] @unique
-
   Clearance6 String[] @unique
 }
 
 model misc {
-  id Int @unique @default(autoincrement()) @id
-
-  guildId String @unique @default("0")
-
+  id                    Int     @id @unique @default(autoincrement())
+  guildId               String  @unique @default("0")
   DmMembersOnModActions Boolean
-
 }
 
 model cases {
-  guildId String @default("0") @id
-
-  caseId Int @default(autoincrement())
-
-  victimId String @default("0")
-
-  victimTag String @default("null#0000")
-
-  modId String @default("0")
-
-  modTag String @default("0")
-
-  caseType String @default("null")
-
+  guildId    String @default("0")
+  caseId     Int    @default(autoincrement())
+  victimId   String @default("0")
+  victimTag  String @default("null#0000")
+  modId      String @default("0")
+  modTag     String @default("0")
+  caseType   String @default("null")
   caseReason String @default("null")
-
+  uID        String @id @unique @default("0x00x01")
 }
