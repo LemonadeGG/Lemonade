@@ -31,4 +31,6 @@ export function envParseArray(key: 'OWNERS', defaultValue?: string[]): string[] 
 export const emojis = {
 	CancelEmoji: "<:Lemonade_Cancel:952285241148588062>",
 	CheckEmoji: "<:Lemonade_Check:952285526621319199>",
+	ClearanceEmoji: "<:Lemonade_Clearance:953884898408673330>",
+	EditEmoji: "<:Lemonade_Edit:953884845992443904>",
 }

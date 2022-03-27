@@ -41,6 +41,8 @@ export class UserCommand extends Command {
         registry.registerChatInputCommand(builder);
       }
       public override async chatInputRun(interaction: CommandInteraction) {
+
+        this.create
           
           const reason = interaction.options.getString("reason") ?? "No Reason Provided."
           const user = interaction.options.getUser("member")
@@ -110,6 +112,7 @@ export class UserCommand extends Command {
         interaction.reply({
             content: "Cancelled."
         })
-    })
+    })    
+    
   }
 }
