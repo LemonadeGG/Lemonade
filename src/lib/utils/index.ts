@@ -33,3 +33,10 @@ export const emojis = {
 	CheckEmoji: "<:Lemonade_Check:952285526621319199>",
 	BlankEmoji: "<:Lemonade_Blank:957466487508041748>"
 }
+
+export enum CaseType {
+	Warn = "Warn",
+	Mute = "Mute",
+	Kick = "Kick",
+	Ban = "Ban",
+}
