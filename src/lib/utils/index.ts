@@ -16,27 +16,36 @@ export const IPv6Regex =
 
 export const LinkRegex = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
 
-
-
 export function envParseArray(key: 'OWNERS', defaultValue?: string[]): string[] {
-	const value = process.env[key];
-	if (isNullishOrEmpty(value)) {
-		if (defaultValue === undefined) throw new Error(`[ENV] ${key} - The key must be an array, but is empty or undefined.`);
-		return defaultValue;
-	}
+  const value = process.env[key];
+  if (isNullishOrEmpty(value)) {
+    if (defaultValue === undefined) throw new Error(`[ENV] ${key} - The key must be an array, but is empty or undefined.`);
+    return defaultValue;
+  }
 
-	return value.split(' ');
+  return value.split(' ');
 }
 
 export const emojis = {
-	CancelEmoji: "<:Lemonade_Cancel:952285241148588062>",
-	CheckEmoji: "<:Lemonade_Check:952285526621319199>",
-	BlankEmoji: "<:Lemonade_Blank:957466487508041748>"
+  CancelEmoji: '<:Lemonade_Cancel:952285241148588062>',
+  CheckEmoji: '<:Lemonade_Check:952285526621319199>',
+  ClearanceEmoji: '<:Lemonade_Clearance:953884898408673330>',
+  EditEmoji: '<:Lemonade_Edit:953884845992443904>',
+  BlankEmoji: '<:Lemonade_Blank:957466487508041748> '
+};
+
+export enum Clearance {
+  NormalUser = 1,
+  Moderator,
+  Administrator,
+  WhitelistedAdmin,
+  WhitelistedOwner,
+  Owner = 5
 }
 
 export enum CaseType {
-	Warn = "Warn",
-	Mute = "Mute",
-	Kick = "Kick",
-	Ban = "Ban",
+  Warn = 'Warn',
+  Mute = 'Mute',
+  Kick = 'Kick',
+  Ban = 'Ban'
 }
