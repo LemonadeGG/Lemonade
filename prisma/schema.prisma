@@ -57,4 +57,5 @@ model cases {
   caseType   String @default("null")
   caseReason String @default("null")
   uID        String @id @unique @default("0x00x01")
+  dateTime   Int    @default(0)
 }
