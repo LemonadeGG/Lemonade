@@ -8,15 +8,15 @@ export class LemonClient extends SapphireClient {
       intents: ['GUILDS', 'GUILD_MESSAGES', 'DIRECT_MESSAGES'],
       api: {
         auth: {
-          id: process.env.CLIENT_ID!,
-          secret: process.env.CLIENT_SECRET!,
-          cookie: 'LEMONY_AUTH',
-          redirect: '/dash',
-          scopes: ['identify', 'guilds']
-        },
-        listenOptions: {
-          port: 8080
-        }
+                id: process.env.CLIENT_ID!,
+                secret: process.env.CLIENT_SECRET!,
+                cookie: 'LEMONY_AUTH',
+                redirect: '/dash',
+                scopes: ['identify', 'guilds'],
+              },
+              listenOptions: {
+                port: 8080
+              }
       }
     });
   }

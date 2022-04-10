@@ -42,3 +42,10 @@ export enum Clearance {
   WhitelistedOwner,
   Owner = 5
 }
+
+export enum CaseType {
+  Warn = 'Warn',
+  Mute = 'Mute',
+  Kick = 'Kick',
+  Ban = 'Ban'
+}

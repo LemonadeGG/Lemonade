@@ -35,12 +35,14 @@ export class UserCommand extends Command {
         }
       });
     }
+
     const embed = new MessageEmbed()
       .setTitle('Filters')
       .addField(
         'Link Filter:',
         `Enabled: \`${filters?.MessageLinkFilter ? '✅' : '❌'}\` \n Action: \`${filters?.MessageLinkFilterAction ?? 'none'}\``
       );
+
     return interaction.reply({
       embeds: [embed],
       ephemeral: false

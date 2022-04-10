@@ -7,10 +7,11 @@ import { MessageEmbed, MessageActionRow, MessageSelectMenu, CommandInteraction }
   description: 'This will fetch help for you!',
   chatInputCommand: {
     register: true
-  }
+  },
 })
 export class UserCommand extends Command {
   public override chatInputRun(interaction: CommandInteraction) {
+    
     const select = new MessageActionRow().addComponents(
       new MessageSelectMenu()
         .setCustomId('HELP')
@@ -23,15 +24,16 @@ export class UserCommand extends Command {
           },
           {
             label: 'Filters',
-            description: 'This is the filters module.',
-            value: 'filteres_module'
+            description: "This is the filters module.",
+            value: "filteres_module"
           }
         ])
     );
 
     const embed = new MessageEmbed().setTitle('Assistance').setDescription('Here, all assistance you need will be provided.');
 
-    void interaction.reply({
+
+    interaction.reply({
       embeds: [embed],
       components: [select]
     });
